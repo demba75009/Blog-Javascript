@@ -4,7 +4,13 @@ const div = document.querySelector(".ListeUser");
 
 const categorie = document.querySelector(".menu");
 
-const ajouter = document.querySelector("a");
+const ajouter = document.querySelector(".lien");
+
+const Like = document.querySelector(".like");
+
+Like.addEventListener("click", (e) => {
+  location.assign("like.html");
+});
 
 ajouter.addEventListener("click", (e) => {
   location.assign("form.html");
@@ -91,6 +97,17 @@ const CreateMenu = (categoriesArr) => {
 const CreatePost = (response, i) => {
   const section = document.createElement("section");
 
+  const Like = document.createElement("button");
+
+  Like.innerHTML = "Like";
+
+  Like.classList.add("success");
+
+  Like.addEventListener("click", (e) => {
+    e.stopPropagation();
+    AddLike(response, i);
+  });
+
   const Supprimer = document.createElement("button");
 
   Supprimer.innerHTML = "Supprimer";
@@ -131,9 +148,23 @@ const CreatePost = (response, i) => {
 
 `;
 
-  section.append(Editer, Supprimer);
+  section.append(Like, Editer, Supprimer);
 
   return section;
+};
+
+const AddLike = (response, i) => {
+  const PostLike = JSON.stringify(response);
+
+  const LikePost = fetch("https://restapi.fr/api/Like", {
+    method: "POST",
+    body: PostLike,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  LikePost.then((res) => console.log(res)).catch((err) => console.log(err));
 };
 
 Display();

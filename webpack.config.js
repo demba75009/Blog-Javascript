@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
     main: path.join(__dirname, "src/index.js"),
-    form : path.join(__dirname, "src/form/form.js")
+    form: path.join(__dirname, "src/form/form.js"),
+    like: path.join(__dirname, "src/like/like.js"),
   },
   output: {
     path: path.join(__dirname, "dist"),
@@ -34,6 +35,12 @@ module.exports = {
       filename: "form.html",
       template: path.join(__dirname, "./src/form/form.html"),
       chunks: ["form"],
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: "like.html",
+      template: path.join(__dirname, "./src/like/like.html"),
+      chunks: ["like"],
     }),
   ],
   stats: "minimal",
