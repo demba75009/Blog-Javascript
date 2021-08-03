@@ -1,54 +1,21 @@
-form{
-border-style:solid;
-background-color: darkgray;
+body {
 
-width: 50%;
-margin: auto;
-
+    background-color: lightblue;
 }
 
+.post{
+    width: 30%;
+    float: right;
+margin: 5px;
 
+    background-color: lightgray;
+}
 
-input{
+.post img{
 
     text-align:center;
-    display: block;
-    margin: 0 0 1em 0;
-    width: 90%; 
-    padding: 5px;
-    background-color: white;
-
+    margin:auto;
+    display:flex;
+    border-radius: 50%;
 }
 
-
-
-textarea{
-
-    text-align:center;
-    display: block;
-    margin: 0 0 1em 0;
-    width: 90%; 
-    padding: 5px;
-    background-color: white;
-
-}
-
-
-.valider{
-
-cursor: pointer;
-text-align:center;
-display: block;
-margin: 0 0 1em 0;
-width: 90%; 
-border: 1px solid #818181;
-padding: 5px;
-
-}
-
-
-.valider:hover{
-
-
-    background-color:aqua;
-}

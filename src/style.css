@@ -1,5 +1,35 @@
+.calc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+section{
+  cursor: pointer;
+}
 
+.ok{
+
+  margin-left: 0.5rem;
+  background: white;
+  border-radius: 3px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  
+}
+
+.text{
+  color: green;
+  width: 75%;
+  padding-left: 30%;
+
+}
 .menu{
 
 background-color: gainsboro;
@@ -11,16 +41,41 @@ border:solid;
 
 .success{
 
-  background-color: aqua;
   float: left;
   border-radius: 50%;
   width: 100px;
 }
 
-.success:hover{
+@media ( min-width:700px)  {
 
-  background-color: chartreuse;
+  .Supprimer{
+
+    float: right;
+    border-radius: 50%;
+    width: 100px;
+  }
+  
 }
+
+
+.Supprimer{
+
+  border-radius: 50%;
+  width: 100px;
+}
+
+
+
+.Editer{
+
+  
+  border-radius: 50%;
+  width: 100px;
+}
+
+
+
+
 
 ul {
   padding: 10;
@@ -50,9 +105,7 @@ background-color: white;
 
 .lien{
 
-  background-color: aqua;
-  cursor: pointer;
-
+cursor: pointer;
 float: right;
 
 }

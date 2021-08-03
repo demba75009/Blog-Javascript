@@ -1,5 +1,5 @@
 import "./like.css";
-
+import { like } from "../modal";
 const div = document.querySelector("div");
 const back = document.querySelector("button");
 
@@ -9,8 +9,8 @@ const Display = async () => {
   const Like = await Promess.json();
 
   try {
-    const LikeList = Like.map((L, I) => {
-      return CreateLike(L, I);
+    const LikeList = Like.map((Like, I) => {
+      return CreateLike(Like, I);
     });
 
     div.innerHTML = "";
@@ -21,21 +21,29 @@ const Display = async () => {
   }
 };
 
+const Dislike2 = (Like) => {
+  const DisLike1 = fetch(`https://restapi.fr/api/Like`, {
+    method: "DELETE",
+  });
+
+  DisLike1.then((res) => {
+    console.log(res);
+    like("Article Disliké ! :(");
+    Display();
+  }).catch((err) => console.log(err));
+};
+
 const CreateLike = (Like, I) => {
   const section = document.createElement("section");
 
+  section.classList.add("post", "text-center");
   const Dislike = document.createElement("button");
 
   Dislike.innerHTML = "Dislike";
 
   Dislike.addEventListener("click", (e) => {
     e.stopPropagation();
-
-    const DisLike1 = fetch(`https://restapi.fr/api/Like`, {
-      method: "DELETE",
-    });
-
-    DisLike1.then((res) => console.log(res)).catch((err) => console.log(err));
+    Dislike2(Like);
   });
 
   section.innerHTML = `
@@ -61,5 +69,7 @@ back.addEventListener("click", (e) => {
   e.stopPropagation();
   location.assign("index.html");
 });
+
+back.classList.add("btn-outline-warning", "back");
 
 Display();
