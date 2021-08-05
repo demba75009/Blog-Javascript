@@ -2,6 +2,10 @@ body {
 
     background-color: lightblue;
 }
+.fleche{
+    margin: 20px;
+    width: 20%;
+}
 
 .post{
     width: 30%;
