@@ -15,11 +15,11 @@ const createModal = (question) => {
   modal.innerHTML = ` ${question} 
   </br>
  `;
-  modal.classList.add("bg-light");
+  modal.classList.add("text-danger","bg-dark","text-center");
 
   Cancel = document.createElement("button");
   Cancel.innerText = "Cancel";
-  Cancel.classList.add("btn-outline-success");
+  Cancel.classList.add("btn-outline-success","ok");
 
   Ok = document.createElement("button");
   Ok.innerText = "OK";
@@ -33,7 +33,7 @@ const  Like = (commentaire) =>{
 modal = document.createElement("div");
 modal.innerHTML = `</br>${commentaire}
 </br> </br>`;
-modal.classList.add("bg-light","text");
+modal.classList.add("text-success","bg-dark","text-center");
 
 const Confirm = document.createElement("button")
 Confirm.innerText="OK";

@@ -10,6 +10,20 @@
   align-items: center;
 }
 
+.question{
+  padding-top: 20px;
+  margin: 30px;
+  padding-left: 30px;
+}
+
+
+.question2{
+  padding-top: 20px;
+  margin: 30px;
+  padding-left: 50px;
+}
+
+
 section{
   cursor: pointer;
 }
@@ -19,8 +33,10 @@ section{
   margin-left: 0.5rem;
   background: white;
   border-radius: 3px;
+  width: 100px;
   box-shadow: var(--box-shadow);
   text-align: center;
+  margin: 50px;
   
 }
 
@@ -47,6 +63,13 @@ border:solid;
 }
 
 @media ( min-width:700px)  {
+
+  .auteur{
+
+    display: inline-block;
+    padding-left: 60%;
+    color: rgb(65, 41, 41);
+  }
 
   .Supprimer{
 
@@ -91,7 +114,12 @@ li:hover{
 
   color: blue;
 }
+.auteur{
 
+  display: inline-block;
+  padding-left: 10%;
+  color: brown;
+}
 section {
   
 width: 40%;
@@ -101,6 +129,13 @@ text-align:center;
 margin: 50px 10px;
 margin-top: 10;
 background-color: white;
+}
+
+.like{
+  float: right;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 5%;
 }
 
 .lien{
@@ -131,4 +166,8 @@ button:hover{
 
 
   background-color: red;
+}
+
+.title{
+  display: inline-block;
 }

@@ -2,6 +2,7 @@
 
 import "./form.css";
 import * as axios from "axios";
+import {like } from "../modal";
 //on récupére un reférence au DOM HTML
 
 const form = document.querySelector("form");
@@ -52,9 +53,15 @@ form.addEventListener("submit", (e) => {
     });
   }
 
-  Promess.then((res) => console.log(res)).catch((err) => console.log(err));
+  Promess.then((res) => 
+  {
+  console.log(res)
+  }
+  ).catch((err) => console.log(err));
 //on retourn a index.html
-  location.assign("index.html");
+
+location.assign("index.html");
+
 });
 
 //on crée une fonction qui va récupere l'url et afficher le form avec les infos du post sélectionner

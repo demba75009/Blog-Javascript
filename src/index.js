@@ -6,27 +6,9 @@ import { like, openModal } from "./modal";
 const div = document.querySelector(".ListeUser");
 
 const categorie = document.querySelector(".menu");
+const h5 = document.querySelector("h5");
 
-const ajouter = document.querySelector(".lien");
-
-const Like = document.querySelector(".like");
-
-/*
-on crée un event listener sur la const Like pour  pouvoir naviguer au lien like.html
-*/
-Like.addEventListener("click", (e) => {
-  location.assign("like.html");
-});
-
-/*
-on ajoute une class au lien "ajouter" pour pouvoir la personnaliser puis on va naviguer sur "form.html"
-*/
-ajouter.classList.add("btn-outline-primary");
-
-ajouter.addEventListener("click", (e) => {
-  location.assign("form.html");
-});
-
+h5.classList.add("text-center");
 //on crée la fonction Display qui va nous permettre de récupérer la liste des Posts via une requete(Promise)
 
 const Display = async () => {
@@ -160,13 +142,11 @@ const CreatePost = (response, i) => {
     e.stopPropagation();
     //on modifie les  classes
 
-    Like.classList.remove("bg-primary");
+    AddLike(response, i);
 
-    Like.classList.add("btn-outline-primary");
+    Like.classList.remove("btn-outline-primary");
 
-    //on instancie la fonction pour Dislikes
-
-    Dislike2(response);
+    Like.classList.add("bg-primary");
   });
 
   //on crée un button qui va permettre de suprimer un Post
@@ -267,6 +247,8 @@ const SupprimerPost = (response) => {
   Supp.then((res) => {
     console.log(res);
     Display();
+    like("post Supprimer :(")
+
   }).catch((err) => console.log(err));
 };
 
