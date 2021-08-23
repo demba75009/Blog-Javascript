@@ -9,6 +9,17 @@ const form = document.querySelector("form");
 
 const back = document.querySelector(".back");
 
+const title = document.querySelector(".title")
+
+title.addEventListener("click",(e)=>{
+
+e.stopPropagation()
+location.assign("index.html")
+
+
+})
+
+
 //on crée une constante qui va récuperer l'url
 let url;
 //on crée un event listener qui va permettre de retourner a la page précedentes

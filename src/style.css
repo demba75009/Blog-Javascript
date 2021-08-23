@@ -170,4 +170,5 @@ button:hover{
 
 .title{
   display: inline-block;
+  cursor: pointer;
 }

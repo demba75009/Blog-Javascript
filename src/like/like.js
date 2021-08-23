@@ -1,12 +1,20 @@
 //on importe les bibliothéques
 
 import "./like.css";
-import { like } from "../modal";
+import { like,openModal } from "../modal";
 //on récupére un reférence au DOM HTML
 
 const div = document.querySelector("div");
 const back = document.querySelector("button");
+const title = document.querySelector(".title")
 
+title.addEventListener("click",(e)=>{
+
+e.stopPropagation()
+location.assign("index.html")
+
+
+})
 //on crée la fonction Display qui va nous permettre de récupérer la liste des Posts liker via une requete(Promise)
 
 const Display = async () => {
@@ -25,8 +33,11 @@ const Display = async () => {
     });
     // on initialiser la div puis on lui injecte la liste des Posts
 
+    if(Like.length > 0)
     div.innerHTML = "";
 
+    else
+    div.innerHTML=`<h2 class = "text-danger text-center"> Aucun Post Liker</h2>`
     div.append(...LikeList);
   } catch (e) {
     console.log(e);
@@ -35,15 +46,18 @@ const Display = async () => {
 
 //cette fonction va disliker les postes
 const Dislike2 = (Like) => {
+
+
   const DisLike1 = fetch(`https://restapi.fr/api/Like`, {
     method: "DELETE",
   });
-
+  
   DisLike1.then((res) => {
     console.log(res);
     like("Article Disliké ! :(");
     Display();
   }).catch((err) => console.log(err));
+  
 };
 
 //On crée la fonction qui va mettre en place la listes des postes liker
@@ -54,10 +68,13 @@ const CreateLike = (Like, I) => {
   section.classList.add("post", "text-center");
   const Dislike = document.createElement("button");
 
-  Dislike.innerHTML = "Dislike";
+  Dislike.innerHTML = `<i class="fas fa-heart-broken"></i>`;
+  Dislike.classList.add("btn-outline-danger","dislike")
+
 
   Dislike.addEventListener("click", (e) => {
     e.stopPropagation();
+    
     Dislike2(Like);
   });
 

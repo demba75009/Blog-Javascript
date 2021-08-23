@@ -7,6 +7,16 @@ const div = document.querySelector(".ListeUser");
 
 const categorie = document.querySelector(".menu");
 const h5 = document.querySelector("h5");
+const title = document.querySelector(".title")
+let complike;
+
+title.addEventListener("click",(e)=>{
+
+e.stopPropagation()
+location.assign("index.html")
+
+
+})
 
 h5.classList.add("text-center");
 //on crée la fonction Display qui va nous permettre de récupérer la liste des Posts via une requete(Promise)
@@ -47,7 +57,22 @@ elle va utiliser un accumulateur qui va classer les catégories et leur quantit�
 
     CreateMenu(categoriesArr);
     // on initialiser la div puis on lui injecte la liste des Posts
+   if(response.length > 0)
+   
     div.innerHTML = "";
+else
+div.innerHTML=`
+
+<h2 class = "text-center text-danger"> 
+Bonjour et bienvenue sur Blog js :)
+
+</h2>
+<h2 class = "text-center text-danger"> 
+
+Pour Ajouter un Post, allez sur + 
+</h2>
+
+`
 
     div.append(...Postnode);
   } catch (e) {
@@ -125,29 +150,40 @@ const CreatePost = (response, i) => {
   });
   //on active un eventlistener pour que l utilisateur puisse liker
 
-  Like.addEventListener("dblclick", (e) => {
+  complike = false;
+
+
+  Like.addEventListener("click", (e) => {
     e.stopPropagation();
     //on instancie la fonction pour ajouter des likes
 
+    if(!complike){ 
     AddLike(response, i);
     //on modifie les  classes
 
     Like.classList.remove("btn-outline-primary");
+    Like.classList.add("animate__heartBeat");
 
     Like.classList.add("bg-primary");
+
+    complike = true
+  }
   });
 
-  //on active un eventlistener pour que l utilisateur puisse Disliker
-  Like.addEventListener("click", (e) => {
-    e.stopPropagation();
-    //on modifie les  classes
+//   //on active un eventlistener pour que l utilisateur puisse Disliker
+//   Like.addEventListener("click", (e) => {
+//     e.stopPropagation();
+//     //on modifie les  classes
+// if(complike)
+// {
+//     Dislike2(response, i);
 
-    AddLike(response, i);
+//     Like.classList.remove("btn-outline-primary");
 
-    Like.classList.remove("btn-outline-primary");
+//     Like.classList.add("bg-primary");
 
-    Like.classList.add("bg-primary");
-  });
+// }
+//   });
 
   //on crée un button qui va permettre de suprimer un Post
   const Supprimer = document.createElement("button");
@@ -184,11 +220,13 @@ const CreatePost = (response, i) => {
   });
   //on effectue la mise en place des post
   section.innerHTML = `
+
 <img src = ${response.photo} />
  <h1>${response.nom}   ${response.prenom}</h1>
  <h2>${response.categorie}</h2>
  <p> ${response.publication}</p>
-`;
+
+ `;
 
   //on injecte les buttons crée au dessus
   section.append(Like, Editer, Supprimer);
@@ -234,7 +272,6 @@ const AddLike = (response, i) => {
   LikePost.then((res) => {
     console.log(res);
 
-    like("Post Liker ! :)");
   }).catch((err) => console.log(err));
 };
 
