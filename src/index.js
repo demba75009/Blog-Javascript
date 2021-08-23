@@ -8,7 +8,30 @@ const div = document.querySelector(".ListeUser");
 const categorie = document.querySelector(".menu");
 const h5 = document.querySelector("h5");
 const title = document.querySelector(".title")
+const changeShow = document.querySelector(".changeShow")
+
+const etat = document.querySelector(".etat")
+
 let complike;
+let show = false;
+
+
+
+changeShow.addEventListener("click",e=>{
+e.stopPropagation();
+show = !show;
+
+if(show)
+
+  etat.classList.add("show")
+
+else
+etat.classList.remove("show")
+
+
+})
+
+
 
 title.addEventListener("click",(e)=>{
 

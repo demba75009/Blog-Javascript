@@ -131,6 +131,16 @@ margin-top: 10;
 background-color: white;
 }
 
+.navbar{
+
+background-color: black;
+
+}
+
+.changeShow{
+  background-color: white;
+}
+
 .like{
   float: right;
   display: inline-block;
