@@ -143,13 +143,23 @@ background-color: black;
 
 .like{
   float: right;
-  display: inline-block;
   cursor: pointer;
-  padding-left: 5%;
 }
 
+
+@media (min-width:600px){
+  
+  .lien{
+
+
+    margin: 40px;
+        
+  }
+
+}
 .lien{
 
+    
 cursor: pointer;
 float: right;
 

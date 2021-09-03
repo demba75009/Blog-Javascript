@@ -92,7 +92,7 @@ Bonjour et bienvenue sur Blog js :)
 </h2>
 <h2 class = "text-center text-danger"> 
 
-Pour Ajouter un Post, allez sur + 
+Pour Ajouter un Post, allez sur + depuis l'icone en haut a droite 
 </h2>
 
 `

@@ -4,17 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script defer src="form.bundle.js"></script></head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script
+      src="https://kit.fontawesome.com/17a3ddfa0f.js"
+      crossorigin="anonymous"
+    ></script>
+
+<script defer src="form.bundle.js"></script><script defer src="topbar.bundle.js"></script></head>
+
+<nav class="navbar navbar-expand-md navbar-light">
+  <h2 class="title text-info">Blog js</h2>
+  <h5 class="text-center auteur"> By Kante Demba </h5>
+
+
+  <button
+    class="changeShow navbar-toggler btn btn-outline-info"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="etat collapse navbar-collapse" >
+     
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" >
+        <h3 class="lien"> <i class="far fa-plus-square text-warning"></i></h3>
+
+      </li>
+
+
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" >
+        <h3 class="like"><i class="far fa-heart"></i></h3>
+
+      </li>
+     
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <h3 class="lien"> <a href="https://fr.linkedin.com/in/demba-kante-68510714b"> <i style ="padding-left: 20px;"class="fab fa-linkedin text-primary"></i></a></h3>
+
+      </li>
+
+      
+    </ul>
+
+  </div>
+</nav>
+
 <body>
     
-    <form>
+<h2 class = "Add text-center">Ajouter une publication: </h2>
+
+<br></br>
+    <form class="bg-info">
+
+        <br></br>
+
+        <label> Prenom</label> :
+        <hr>
+
+        
+
         <input type="text" name="prenom" placeholder="prenom"/>
-        <input type="number" name ="age" placeholder="age">
-        <input type="file" name="name"  /><br></br>
-        <button>Submit</button>
+        <br></br>
+        
+        <label> Nom</label> :
+        <hr>
+
+
+        <input type="text" name ="nom" placeholder="nom">
+        <br></br>
+
+        <label> Photo</label> :
+        <hr>
+
+        <input type="text" name="photo" placeholder="https//:"/>
+
+
+
+        <br></br>
+        <label> categorie</label> :
+        <hr>
+
+
+        <input type="text" name ="categorie" placeholder="categorie">
+
+        <br></br>
+
+        <label> Publication</label> :
+        <hr>
+
+        <textarea style = "height: 300px;"type = "text" 
+        placeholder="ecrivez votre publication"
+        name="publication"
+         > 
+
+        </textarea>
+        
+        <br></br>
+       
+       
+       
+        <button class = "valider">Submit</button>
       </form>
   
-
+      <br></br>
       <button class = "back">back</button>
 
 </body>

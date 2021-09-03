@@ -4,17 +4,17 @@ import "./like.css";
 import { like,openModal } from "../modal";
 //on récupére un reférence au DOM HTML
 
-const div = document.querySelector("div");
-const back = document.querySelector("button");
-const title = document.querySelector(".title")
+const div1 = document.querySelector(".ListeUser");
+const back = document.querySelector(".fleche");
+// const title = document.querySelector(".title")
 
-title.addEventListener("click",(e)=>{
+// title.addEventListener("click",(e)=>{
 
-e.stopPropagation()
-location.assign("index.html")
+// e.stopPropagation()
+// location.assign("index.html")
 
 
-})
+// })
 //on crée la fonction Display qui va nous permettre de récupérer la liste des Posts liker via une requete(Promise)
 
 const Display = async () => {
@@ -31,14 +31,15 @@ const Display = async () => {
 
       return CreateLike(Like, I);
     });
-    // on initialiser la div puis on lui injecte la liste des Posts
+    // on initialiser la div1 puis on lui injecte la liste des Posts
 
     if(Like.length > 0)
-    div.innerHTML = "";
+    div1.innerHTML = "";
 
     else
-    div.innerHTML=`<h2 class = "text-danger text-center"> Aucun Post Liker</h2>`
-    div.append(...LikeList);
+    div1.innerHTML=`<h2 class = "text-danger text-center"> Aucun Post Liker</h2>`
+    
+    div1.append(...LikeList);
   } catch (e) {
     console.log(e);
   }
