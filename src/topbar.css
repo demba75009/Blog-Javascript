@@ -1,4 +1,4 @@
-.calc {
+/* .calc {
   position: fixed;
   top: 0;
   left: 0;
@@ -129,13 +129,39 @@ text-align:center;
 margin: 50px 10px;
 margin-top: 10;
 background-color: white;
+} */
+
+.navbar{
+
+background-color: black;
+
 }
 
 
-img{
+
+.changeShow{
+  background-color: white;
+}
+
+.like{
+  float: right;
+  cursor: pointer;
+}
+
+
+
+.lien{
+
+    
+cursor: pointer;
+float: right;
+
+}
+
+/* img{
 
 border-radius: 50%;
-}
+} */
 
 body{
 
@@ -143,7 +169,7 @@ body{
   background-color: grey;
 
 }
-
+/* 
 button{
 
   cursor: pointer;
@@ -153,5 +179,9 @@ button:hover{
 
 
   background-color: red;
-}
+} */
 
+.title{
+  display: inline-block;
+  cursor: pointer;
+}

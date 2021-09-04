@@ -2,23 +2,21 @@
 
 import "./form.css";
 import * as axios from "axios";
-import {like } from "../modal";
+import { like } from "../modal";
 //on récupére un reférence au DOM HTML
 
 const form = document.querySelector("form");
+// let photo = document.querySelector(".image-file").files
 
+// console.log(photo);
 const back = document.querySelector(".back");
 
-const title = document.querySelector(".title")
+const title = document.querySelector(".title");
 
-title.addEventListener("click",(e)=>{
-
-e.stopPropagation()
-location.assign("index.html")
-
-
-})
-
+title.addEventListener("click", (e) => {
+  e.stopPropagation();
+  location.assign("index.html");
+});
 
 //on crée une constante qui va récuperer l'url
 let url;
@@ -27,7 +25,7 @@ back.addEventListener("click", (e) => {
   history.back(1);
 });
 
-//on crée un event listener qui va permettre de valider le form 
+//on crée un event listener qui va permettre de valider le form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -36,7 +34,7 @@ form.addEventListener("submit", (e) => {
 
   //on transforme ces inputs en un objet
   const Post = Object.fromEntries(PostData);
-//on convertir cet objet aux fromat json
+  //on convertir cet objet aux fromat json
   const post = JSON.stringify(Post);
 
   //on crée un let pour pourvoir effectuer des promess en fonction de l'action ajouter ou modifier
@@ -64,15 +62,12 @@ form.addEventListener("submit", (e) => {
     });
   }
 
-  Promess.then((res) => 
-  {
-  console.log(res)
-  }
-  ).catch((err) => console.log(err));
-//on retourn a index.html
+  Promess.then((res) => {
+    console.log(res);
+  }).catch((err) => console.log(err));
+  //on retourn a index.html
 
-location.assign("index.html");
-
+  location.assign("index.html");
 });
 
 //on crée une fonction qui va récupere l'url et afficher le form avec les infos du post sélectionner
@@ -90,7 +85,7 @@ const DisplayEdit = async (url) => {
     const response = await Post.json();
 
     console.log(response);
-//on return la foction fiilform
+    //on return la foction fiilform
     return fillform(response);
   } catch (e) {
     console.log(e);

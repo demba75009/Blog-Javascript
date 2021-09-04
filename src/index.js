@@ -6,42 +6,9 @@ import { like, openModal } from "./modal";
 const div = document.querySelector(".ListeUser");
 
 const categorie = document.querySelector(".menu");
-const h5 = document.querySelector("h5");
-const title = document.querySelector(".title")
-const changeShow = document.querySelector(".changeShow")
-
-const etat = document.querySelector(".etat")
 
 let complike;
-let show = false;
 
-
-
-changeShow.addEventListener("click",e=>{
-e.stopPropagation();
-show = !show;
-
-if(show)
-
-  etat.classList.add("show")
-
-else
-etat.classList.remove("show")
-
-
-})
-
-
-
-title.addEventListener("click",(e)=>{
-
-e.stopPropagation()
-location.assign("index.html")
-
-
-})
-
-h5.classList.add("text-center");
 //on crée la fonction Display qui va nous permettre de récupérer la liste des Posts via une requete(Promise)
 
 const Display = async () => {
@@ -80,11 +47,9 @@ elle va utiliser un accumulateur qui va classer les catégories et leur quantit�
 
     CreateMenu(categoriesArr);
     // on initialiser la div puis on lui injecte la liste des Posts
-   if(response.length > 0)
-   
-    div.innerHTML = "";
-else
-div.innerHTML=`
+    if (response.length > 0) div.innerHTML = "";
+    else
+      div.innerHTML = `
 
 <h2 class = "text-center text-danger"> 
 Bonjour et bienvenue sur Blog js :)
@@ -92,10 +57,14 @@ Bonjour et bienvenue sur Blog js :)
 </h2>
 <h2 class = "text-center text-danger"> 
 
-Pour Ajouter un Post, allez sur + depuis l'icone en haut a droite 
+Pour Ajouter un Post, allez sur l icone </br></br>
+<a href = "form.html"> <i style="width:100%;" class=" far fa-plus-square text-center text-primary"></i></a>
+
 </h2>
 
-`
+
+
+`;
 
     div.append(...Postnode);
   } catch (e) {
@@ -175,38 +144,37 @@ const CreatePost = (response, i) => {
 
   complike = false;
 
-
   Like.addEventListener("click", (e) => {
     e.stopPropagation();
     //on instancie la fonction pour ajouter des likes
 
-    if(!complike){ 
-    AddLike(response, i);
-    //on modifie les  classes
+    if (!complike) {
+      AddLike(response, i);
+      //on modifie les  classes
 
-    Like.classList.remove("btn-outline-primary");
-    Like.classList.add("animate__heartBeat");
+      Like.classList.remove("btn-outline-primary");
+      Like.classList.add("animate__heartBeat");
 
-    Like.classList.add("bg-primary");
+      Like.classList.add("bg-primary");
 
-    complike = true
-  }
+      complike = true;
+    }
   });
 
-//   //on active un eventlistener pour que l utilisateur puisse Disliker
-//   Like.addEventListener("click", (e) => {
-//     e.stopPropagation();
-//     //on modifie les  classes
-// if(complike)
-// {
-//     Dislike2(response, i);
+  //   //on active un eventlistener pour que l utilisateur puisse Disliker
+  //   Like.addEventListener("click", (e) => {
+  //     e.stopPropagation();
+  //     //on modifie les  classes
+  // if(complike)
+  // {
+  //     Dislike2(response, i);
 
-//     Like.classList.remove("btn-outline-primary");
+  //     Like.classList.remove("btn-outline-primary");
 
-//     Like.classList.add("bg-primary");
+  //     Like.classList.add("bg-primary");
 
-// }
-//   });
+  // }
+  //   });
 
   //on crée un button qui va permettre de suprimer un Post
   const Supprimer = document.createElement("button");
@@ -244,9 +212,10 @@ const CreatePost = (response, i) => {
   //on effectue la mise en place des post
   section.innerHTML = `
 
-<img src = ${response.photo} />
+<img src = "${response.photo}" />
  <h1>${response.nom}   ${response.prenom}</h1>
  <h2>${response.categorie}</h2>
+
  <p> ${response.publication}</p>
 
  `;
@@ -294,7 +263,6 @@ const AddLike = (response, i) => {
 
   LikePost.then((res) => {
     console.log(res);
-
   }).catch((err) => console.log(err));
 };
 
@@ -307,8 +275,7 @@ const SupprimerPost = (response) => {
   Supp.then((res) => {
     console.log(res);
     Display();
-    like("post Supprimer :(")
-
+    like("post Supprimer :(");
   }).catch((err) => console.log(err));
 };
 
